@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Add a New Recipe {% endblock %}
+{% block content %}
+    <form method="post">
+        <p>
+            <label for="title">Title</label>
+            <input type="text" name="title" placeholder="Recipe Name"></input>
+        </p>
+
+        <p>
+            <label for="link">Link</link>
+            <input type="url" name="url" id="url"
+                placeholder="https://www.example.com" pattern="https://.*"
+                required>
+            </input>
+        </p>
+
+        <p>
+            <label for="comments">Comments</label>
+            <textarea type="text" name="comments"
+                placeholder="Add any comments related to the recipe" rows="10" cols="25">
+            </textarea>
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}
