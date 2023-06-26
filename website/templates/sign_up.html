@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %} 
+<form method="POST">
+    <div class="form-outline mb-4">
+        <h1 class="col d-flex justify-content-center">Sign up</h1>
+        <label class="form-label" for="email">E-mail address</label>
+        <input type="email" name="email" id ="email" class="form-control" />
+    </div>
+    <div class="form-outline mb-4">
+        <label class="form-label" for="firstName">First Name</label>
+        <input type="text" name="firstName" id ="firstName" class="form-control" />
+    </div>
+    <div class="form-outline mb-4">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-control" />
+    </div>
+    <div class="form-outline mb-4">
+        <label class="form-label" for="verify_password">Verify Password</label>
+        <input type="verify_password" name="verify_password" id="verify_password" class="form-control" />
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+</form>
+{% endblock %}
