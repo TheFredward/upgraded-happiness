@@ -3,27 +3,26 @@
 {% block title %} Add a New Recipe {% endblock %}
 {% block content %}
     <form method="POST">
-        <p>
-            <label for="title">Title</label>
-            <input type="text" name="title" placeholder="Recipe Name"></input>
-        </p>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Recipe Title</label>
+            <input class="form-control form-control-lg" type="text" id="exampleFormControlSelect1" placeholder="Recipe Name" required></input>
+        </div>
 
-        <p>
-            <label for="link">Link</link>
-            <input type="url" name="url" id="url"
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Link</label>
+            <input class="form-control" name="url" id="exampleFormControlSelect2"
                 placeholder="https://www.example.com" pattern="https://.*"
                 required>
             </input>
-        </p>
+        </div>
 
-        <p>
-            <label for="comments">Comments</label>
-            <textarea type="text" name="comments"
-                placeholder="Add any comments related to the recipe" rows="10" cols="25">
-            </textarea>
-        </p>
-        <p>
-            <button type="submit">Submit</button>
-        </p>
+        <div class="form-group">
+            <label for="exFormControlTextArea">Comments</label>
+            <textarea class="form-control" id="exFormControlTextArea" name="comments"
+                placeholder="Add any comments related to the recipe" rows="5"></textarea>
+        </div>
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
     </form>
 {% endblock %}
