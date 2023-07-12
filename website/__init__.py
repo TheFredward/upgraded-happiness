@@ -40,6 +40,5 @@ def create_app():
 
 def create_database(app):
     with app.app_context():
-        print(db.database)
         db.create_all()
         print('Created database')

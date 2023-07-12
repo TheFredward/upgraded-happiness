@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}About{% endblock %}
+{% block title %}Recipes{% endblock %}
 
 {% block content %} 
-<h1> Recipes will show up here</h1>
+<h1 class="align-middle" id="recipes"></h1>
+<ul class="list-group list-group-flush">
+    {% for recipe in user.recipes %}
+    <li class="list-group-item">{{ recipe.data }}</li>
+    {% endfor %}
 {% endblock %}
