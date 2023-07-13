@@ -3,9 +3,26 @@
 {% block title %}Recipes{% endblock %}
 
 {% block content %} 
-<h1 class="align-middle" id="recipes"></h1>
+<div class="text-center">
+    <h1 class="middle" id="recipes">Recipes</h1>
+</div>
+<div class="text-justify">
 <ul class="list-group list-group-flush">
-    {% for recipe in user.recipes %}
-    <li class="list-group-item">{{ recipe.data }}</li>
+    {% if user.recipes|length > 1 %}
+        {% for recipe in user.recipes %}
+        <li class="list-group-item">{{ recipe.title }}</li>
+        <a href={{recipe.link}} class="list-group-item-action">{{recipe.link}}</a>
+        <li class="list-group-item"> {{ recipe.comment }}</li>
+        <button type="button" class="close" onClick="deleteRecipe({{ recipe.id }})">
+            <span aria-hidden="true">&times;</span>
+        </button>
     {% endfor %}
+    {% else %}
+        <p class="text-center"> No recipes have been added yet!</p>
+        <div class="d-flex justify-content-center">
+        <p class="mr-1">Let's add some using,</p> 
+        <a href="/create">Create Recipes</a>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}
