@@ -1,7 +1,29 @@
 {% extends 'base.html' %}
 
-{% block title %}About{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %} 
-<h1> Login page will be here!</h1>
+<form method="POST">
+    <div class="form-outline mb-4">
+        <h1 class="col d-flex justify-content-center">Login</h1>
+        <label class="form-label" for="email">E-mail address</label>
+        <input type="email" name="email" id ="email" class="form-control" />
+    </div>
+    <div class="form-outline mb-4">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-control" />
+    </div>
+    <div class="row mb-4">
+        <div class="col d-flex justify-content-start">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value "" id="check-box" checked/>
+                <label class="form-check-label" for="check-box"> Remember Me</label>
+            </div>
+        </div>
+        <div ="col">
+            <a href="#!">Forgot password?</a>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+</form>
 {% endblock %}
