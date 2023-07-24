@@ -3,7 +3,6 @@ from flask_login import login_user, login_required, logout_user, current_user
 from .models import User
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
-from re import fullmatch
 
 
 auth = Blueprint('auth', __name__)
@@ -35,7 +34,6 @@ def logout():
 @auth.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
     if request.method == 'POST':
-        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
         data = request.form
         new_email = data.get('email')
         new_first_name = data.get('firstName')
@@ -43,7 +41,7 @@ def sign_up():
         verify_password = data.get('verify_password')
 
         user = User.query.filter_by(email=new_email).first()
-        if fullmatch(regex, new_email) == 'None':
+        if new_email == 'None':
             flash('Invalid e-mail address', 'error')
         elif user:
             flash('Email already exists', category='error')

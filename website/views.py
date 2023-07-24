@@ -47,10 +47,16 @@ def delete_recipe():
     return jsonify({})
 
 
-@views.route('/update-route', methods=['Get','POST'])
+@views.route('/update-recipe', methods=['GET','POST'])
 @login_required
 def update_route():
     recipe = json.loads(request.data)
     recipeID = recipe['recipeId']
     recipe = Recipe.query.get(recipeID) 
+    if recipe:
+        print(recipe.title)
+        print(recipe.link)
+        print(recipe.comment)
+        return redirect(url_for('views.create'))
+
     return jsonify({})

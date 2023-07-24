@@ -8,14 +8,20 @@
 </div>
 <div class="text-justify">
 <ul class="list-group list-group-flush">
-    {% if user.recipes|length > 1 %}
+    {% if user.recipes|length >= 1 %}
         {% for recipe in user.recipes %}
         <li class="list-group-item">{{ recipe.title }}</li>
         <a href={{recipe.link}} class="list-group-item-action">{{recipe.link}}</a>
         <li class="list-group-item"> {{ recipe.comment }}</li>
-        <button type="button" class="close" onClick="deleteRecipe({{ recipe.id }})">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <div class="d-flex flex-row justify-content-between">
+            <div class="list-group ml-3 mt-2">
+                <button type="button" class="btn btn-success btn-block " onClick="updateRecipe({{ recipe.id }})">Update</button>
+            </div>
+            <div class="list-group mr-3 mt-2">
+                <button type="button" class="btn btn-danger btn-block " onClick="deleteRecipe({{ recipe.id }})">Delete</button>
+            </div>
+        </div>
+        </ul>
     {% endfor %}
     {% else %}
         <p class="text-center"> No recipes have been added yet!</p>
@@ -24,5 +30,4 @@
         <a href="/create">Create Recipes</a>
         </div>
     {% endif %}
-</div>
 {% endblock %}
